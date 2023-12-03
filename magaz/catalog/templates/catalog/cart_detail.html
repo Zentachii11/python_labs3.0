@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <style>
+        .cart-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Корзина</h1>
+    <div class="cart-items">
+        {% for cart_item in cart_items %}
+            <div class="cart-item">
+                <h2>{{ cart_item.product.name }}</h2>
+                <p>Цена: {{ cart_item.product.price }}</p>
+                <p>Количество: {{ cart_item.quantity }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'product_list' %}" class="go-to-catalog-btn">Вернуться в каталог</a>
+</body>
+</html>
